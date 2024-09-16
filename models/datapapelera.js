@@ -110,4 +110,13 @@ Order.updatePlanning = (id) => {
   `;
   return db.none(sql, [id]);
 };
+
+//Belen
+Order.getTipoa = () => {
+  const sql = `
+  select * from getTipoa()
+  `;
+  return db.manyOrNone(sql);
+};
+
 module.exports = Order;
