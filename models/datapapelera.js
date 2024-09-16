@@ -112,11 +112,15 @@ Order.updatePlanning = (id) => {
 };
 
 //Belen
-Order.getTipoa = () => {
+Order.getTipoa = (quality) => {
   const sql = `
-  select * from getTipoa()
+ SELECT *
+    FROM orders
+    WHERE quality ILIKE $1
+    AND status ILIKE 'Recibido'
+    AND product NOT ILIKE '%torta%'
   `;
-  return db.manyOrNone(sql);
+  return db.manyOrNone(sql, quality);
 };
 
 module.exports = Order;

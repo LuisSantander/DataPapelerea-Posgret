@@ -29,5 +29,8 @@ module.exports = (app) => {
     DatapapeleraController.updatePlanning
   );
   //Belen
-  app.get("/api/datapapelera/getTipoa", DatapapeleraController.getTipoa);
+  app.get(
+    "/api/datapapelera/getTipoa/:status",
+    DatapapeleraController.getTipoa
+  );
 };

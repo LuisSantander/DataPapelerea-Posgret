@@ -1,0 +1,13 @@
+
+-- DROP FUNCTION IF EXISTS getTipoa();
+ CREATE OR REPLACE FUNCTION getTipoa()
+RETURNS SETOF orders AS $$
+BEGIN
+    RETURN QUERY
+    SELECT *
+    FROM orders
+    WHERE quality ILIKE 'A%'
+    AND status ILIKE 'Recibido'
+    AND product NOT ILIKE '%torta%';  -- Filtra cualquier valor que contenga la palabra "torta"
+END;
+$$ LANGUAGE plpgsql;

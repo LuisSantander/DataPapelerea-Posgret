@@ -134,7 +134,8 @@ module.exports = {
   //Belen
   async getTipoa(req, res, next) {
     try {
-      const data = await Order.getTipoa();
+      const quality = req.params.status;
+      const data = await Order.getTipoa(quality);
 
       const response = {
         orders: data,
