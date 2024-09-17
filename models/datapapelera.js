@@ -116,8 +116,8 @@ Order.getTipoa = (quality) => {
   const sql = `
  SELECT *
     FROM orders
-    WHERE quality ILIKE $1
-    AND status ILIKE 'Recibido'
+    WHERE quality LIKE '%' || $1 || '%'
+    AND status LIKE 'Recibido'
     AND product NOT ILIKE '%torta%'
   `;
   return db.manyOrNone(sql, quality);
