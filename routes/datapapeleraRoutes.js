@@ -30,7 +30,7 @@ module.exports = (app) => {
   );
   //Belen
   app.get(
-    "/api/datapapelera/getTipoa/:status",
+    "/api/datapapelera/getTipoa/:quality",
     DatapapeleraController.getTipoa
   );
 };
