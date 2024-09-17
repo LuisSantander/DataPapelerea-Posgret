@@ -119,8 +119,8 @@ Order.getTipoa = (quality) => {
     AND status ILIKE 'Recibido'
     AND product NOT ILIKE '%torta%'
   `;
-  // Usa el parámetro en un array
-  return db.manyOrNone(sql, [`%${quality}%`]);
+  // Usa el parámetro en un array para buscar valores que comiencen con 'quality'
+  return db.manyOrNone(sql, [`${quality}%`]);
 };
 
 module.exports = Order;
