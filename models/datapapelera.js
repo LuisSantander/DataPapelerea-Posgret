@@ -42,6 +42,7 @@ Order.update = (order) => {
   return db.none(sql, [order.id, order.status]);
 };
 
+
 Order.getPedidosRecientes = (zonas) => {
   const sql = `
     SELECT * FROM listar_pedidos_dia($1);
@@ -110,4 +111,14 @@ Order.updatePlanning = (id) => {
   `;
   return db.none(sql, [id]);
 };
+
+Order.updatePlaca = (order_cod) => {
+  const sql = `
+ UPDATE orders
+  SET status = 'Produccion'
+  WHERE order_cod IN ($1);
+  `;
+  return db.none(sql, [order_cod]);
+};
+
 module.exports = Order;

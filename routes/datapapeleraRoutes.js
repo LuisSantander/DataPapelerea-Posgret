@@ -22,4 +22,9 @@ module.exports = (app) => {
     "/api/datapapelera/updatePlanning",
     DatapapeleraController.updatePlanning
   );
+
+  app.put(
+    "/api/datapapelera/updatePlaca",
+    DatapapeleraController.updatePlaca
+  );
 };
