@@ -130,22 +130,4 @@ module.exports = {
       });
     }
   },
-  async updatePlaca(req, res, next) {
-    try {
-      const order_cod = req.body.order_cod;
-      await Order.updatePlaca(order_cod);
-
-      return res.status(201).json({
-        success: true,
-        message: "Las órdenes se actualizaron correctamente a 'Producción'",
-      });
-    } catch (error) {
-      console.log(`Error: ${error}`);
-      return res.status(501).json({
-        success: false,
-        message: "Hubo un error actualizando las órdenes a 'Producción'",
-        error: error.message,
-      });
-    }
-  },
 };
