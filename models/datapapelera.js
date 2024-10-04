@@ -121,4 +121,17 @@ Order.updatePlaca = (order_code) => {
   return db.none(sql, [order_code]);
 };
 
+
+Order.getTipoa = (quality) => {
+  const sql = `
+    SELECT *
+    FROM orders
+    WHERE quality ILIKE $1 || '%'
+    AND status ILIKE 'Recibido'
+    AND product NOT ILIKE '%torta%'
+  `;
+
+  return db.none(sql, [quality]);
+};
+
 module.exports = Order;
