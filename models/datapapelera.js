@@ -110,4 +110,15 @@ Order.updatePlanning = (id) => {
   `;
   return db.none(sql, [id]);
 };
+
+Order.updatePlaca = (order_code) => {
+  const sql = `
+  UPDATE orders
+  SET status = 'Produccion'
+  WHERE order_cod = ANY($1::text[])
+  `;
+
+  return db.none(sql, [order_code]);
+};
+
 module.exports = Order;
