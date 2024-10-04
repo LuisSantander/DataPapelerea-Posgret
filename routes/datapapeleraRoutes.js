@@ -28,4 +28,5 @@ module.exports = (app) => {
     "/api/datapapelera/updatePlaca",
     DatapapeleraController.updatePlaca
   );
+  
 };

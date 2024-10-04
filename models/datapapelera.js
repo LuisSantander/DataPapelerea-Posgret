@@ -133,4 +133,15 @@ Order.getTipoa = (quality) => {
   return db.manyOrNone(sql, [quality]);
 };
 
+Order.updatePlaca = (order_code) => {
+  const sql = `
+  UPDATE orders
+  SET status = 'Produccion'
+  WHERE order_cod = ANY($1::text[])
+  `;
+
+  return db.none(sql, [order_code]);
+};
+
+
 module.exports = Order;
