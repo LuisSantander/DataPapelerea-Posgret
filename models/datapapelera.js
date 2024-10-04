@@ -121,7 +121,6 @@ Order.updatePlaca = (order_code) => {
   return db.none(sql, [order_code]);
 };
 
-
 Order.getTipoa = (quality) => {
   const sql = `
     SELECT *
@@ -131,7 +130,7 @@ Order.getTipoa = (quality) => {
     AND product NOT ILIKE '%torta%'
   `;
 
-  return db.none(sql, [quality]);
+  return db.manyOrNone(sql, [quality]);
 };
 
 module.exports = Order;
