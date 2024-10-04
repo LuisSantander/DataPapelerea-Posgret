@@ -22,6 +22,7 @@ module.exports = (app) => {
     "/api/datapapelera/updatePlanning",
     DatapapeleraController.updatePlanning
   );
+  app.get("/api/datapapelera/getTipoa/:tipo", DatapapeleraController.getTipoa);
 
   app.put(
     "/api/datapapelera/updatePlaca",
