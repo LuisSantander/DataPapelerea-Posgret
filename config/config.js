@@ -18,7 +18,7 @@ const databaseConfig = {
   user: "postgres",
   password: "lsmSantander76",
 };*/
-
+//CAMBIO
 //PRODUCCION
 const databaseConfig = {
   host: "dpg-cri72j3v2p9s73blj62g-a",
