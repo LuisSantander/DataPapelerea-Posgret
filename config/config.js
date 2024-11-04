@@ -23,7 +23,7 @@ const databaseConfig = {
 const databaseConfig = {
   host: "dpg-csjvfa0gph6c73a5t15g-a",
   port: 5432,
-  database: "bdpapeler",
+  database: "bdpapelera",
   user: "bdpapelera_user",
   password: "FiHatUBMC2MVtQtfG7eb4VMzH2ZSSe6H",
 };
