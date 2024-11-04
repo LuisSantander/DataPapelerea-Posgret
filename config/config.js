@@ -18,14 +18,14 @@ const databaseConfig = {
   user: "postgres",
   password: "lsmSantander76",
 };*/
-//CAMBIO
+
 //PRODUCCION
 const databaseConfig = {
-  host: "dpg-cri72j3v2p9s73blj62g-a",
+  host: "dpg-csjvfa0gph6c73a5t15g-a",
   port: 5432,
-  database: "api_papelera",
-  user: "api_papelera_user",
-  password: "LjcLpMjuMQFfRNGBBEL24ikBCjpdpStD",
+  database: "bdpapeler",
+  user: "bdpapelera_user",
+  password: "FiHatUBMC2MVtQtfG7eb4VMzH2ZSSe6H",
 };
 
 const db = pgp(databaseConfig);
