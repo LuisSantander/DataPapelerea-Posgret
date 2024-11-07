@@ -47,11 +47,11 @@ Order.updateOrder = (order) => {
   UPDATE
   orders
   SET
-  status = $2
+  status = 'Produccion'
   WHERE
   order_cod = $1
   `;
-  return db.none(sql, [order.orderCod, order.status]);
+  return db.none(sql, [order.orderCod]);
 };
 
 Order.getPedidosRecientes = (zonas) => {
