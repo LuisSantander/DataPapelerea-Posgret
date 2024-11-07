@@ -44,10 +44,9 @@ module.exports = {
   async updateOrderToStatus(req, res, next) {
     try {
       const order_cod = req.params.order_cod.split(','); 
-      const status = req.params.status;
       
       for (let orderCod of order_cod) {
-        await Order.updateOrder({ id: orderCod, status });
+        await Order.updateOrder({ orderCod });
       }
   
       return res.status(201).json({

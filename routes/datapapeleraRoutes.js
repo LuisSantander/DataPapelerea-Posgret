@@ -20,7 +20,7 @@ module.exports = (app) => {
   );
 
   app.put(
-    "/api/datapapelera/updateOrderToStatus/:order_cod/:status",
+    "/api/datapapelera/updateOrderToStatus/:order_cod",
     DatapapeleraController.updateOrderToStatus
   );
 

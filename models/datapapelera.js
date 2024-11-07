@@ -51,7 +51,7 @@ Order.updateOrder = (order) => {
   WHERE
   order_cod = $1
   `;
-  return db.none(sql, [order.id, order.status]);
+  return db.none(sql, [order.orderCod, order.status]);
 };
 
 Order.getPedidosRecientes = (zonas) => {
