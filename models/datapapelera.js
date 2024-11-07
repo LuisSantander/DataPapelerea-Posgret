@@ -42,6 +42,18 @@ Order.update = (order) => {
   return db.none(sql, [order.id, order.status]);
 };
 
+Order.updateOrder = (order) => {
+  const sql = `
+  UPDATE
+  orders
+  SET
+  status = $2
+  WHERE
+  order_cod = $1
+  `;
+  return db.none(sql, [order.id, order.status]);
+};
+
 Order.getPedidosRecientes = (zonas) => {
   const sql = `
     SELECT * FROM listar_pedidos_dia($1);

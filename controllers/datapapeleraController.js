@@ -40,6 +40,27 @@ module.exports = {
     }
   },
 
+  
+  async updateOrderToStatus(req, res, next) {
+    try {
+      const id = req.params.id;
+      const status = req.params.status;
+      await Order.updateOrder({ id, status });
+      return res.status(201).json({
+        success: true,
+        message: "LA ORDEN SE ACTUALIZÓ CORRECTAMENTE",
+      });
+    } catch (error) {
+      console.log(`Error ${error}`);
+      return res.status(501).json({
+        success: false,
+        message: "Hubo un error actualizando la orden a Recibido",
+        error: error,
+      });
+    }
+  },
+
+  
   async getPedidosRecientes(req, res, next) {
     try {
       const zonasParam = req.params.zonas;
