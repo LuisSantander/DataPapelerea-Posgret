@@ -43,10 +43,10 @@ module.exports = {
   
   async updateOrderToStatus(req, res, next) {
     try {
-      const orderCodes = req.params.order_cod.split(','); 
+      const order_cod = req.params.order_cod.split(','); 
       const status = req.params.status;
       
-      for (let orderCod of orderCodes) {
+      for (let orderCod of order_cod) {
         await Order.updateOrder({ id: orderCod, status });
       }
   
