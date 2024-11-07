@@ -43,22 +43,27 @@ module.exports = {
   
   async updateOrderToStatus(req, res, next) {
     try {
-      const id = req.params.id;
+      const orderCodes = req.params.order_cod.split(','); 
       const status = req.params.status;
-      await Order.updateOrder({ id, status });
+      
+      for (let orderCod of orderCodes) {
+        await Order.updateOrder({ id: orderCod, status });
+      }
+  
       return res.status(201).json({
         success: true,
-        message: "LA ORDEN SE ACTUALIZÓ CORRECTAMENTE",
+        message: "LAS ÓRDENES SE ACTUALIZARON CORRECTAMENTE",
       });
     } catch (error) {
       console.log(`Error ${error}`);
       return res.status(501).json({
         success: false,
-        message: "Hubo un error actualizando la orden a Recibido",
+        message: "Hubo un error actualizando las órdenes",
         error: error,
       });
     }
   },
+  
 
   
   async getPedidosRecientes(req, res, next) {
