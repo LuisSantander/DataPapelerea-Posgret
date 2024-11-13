@@ -1,21 +1,15 @@
--- DROP FUNCTION IF EXISTS listar_pedidos_dia(p_zonas text[]);
+-- FUNCTION: public.listar_pedidos_dia(text[])
 
-CREATE OR REPLACE FUNCTION public.listar_pedidos_dia(p_zonas text[])
-    RETURNS TABLE(id integer,
-				  order_cod text,
-				  client_cod text,
-				  client text, 
-				  product text, 
-				  quantity text, 
-				  width text, 
-				  length text, 
-				  zone text, 
-				  coordinates text, 
-				  delivery_date date) 
+-- DROP FUNCTION IF EXISTS public.listar_pedidos_dia(text[]);
+
+CREATE OR REPLACE FUNCTION public.listar_pedidos_dia(
+	p_zonas text[])
+    RETURNS TABLE(id integer, order_cod text, client_cod text, client text, product text, quantity text, width text, length text, zone text, coordinates text, delivery_date date) 
     LANGUAGE 'plpgsql'
     COST 100
     VOLATILE PARALLEL UNSAFE
     ROWS 1000
+
 AS $BODY$
 BEGIN
     RETURN QUERY
@@ -44,16 +38,16 @@ BEGIN
             public.orders p
         LEFT JOIN zonas_ordenadas z ON p.zone ILIKE '%' || z.zona_filtro || '%'
         WHERE 
-            p.status = 'Despacho'
+            p.status = 'Logistica'
             AND (p_zonas IS NULL OR z.zona_filtro IS NOT NULL)
     )
     SELECT 
 		po.id,
         po.order_cod, 
         po.client_cod, 
+		po.client,
 		po.product, 
 		po.quantity, 
-        po.client,
         po.width,
         po.length,
         po.zone,
@@ -68,3 +62,7 @@ BEGIN
         po.delivery_date DESC;
 END;
 $BODY$;
+
+ALTER FUNCTION public.listar_pedidos_dia(text[])
+    OWNER TO bdpapelera_user;
+	
