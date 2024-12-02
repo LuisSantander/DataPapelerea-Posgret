@@ -126,7 +126,6 @@ module.exports = {
       const status = req.params.status;
       let data = await Order.findByStatus(status);
 
-      console.log("Order: ", data);
       return res.status(201).json(data);
     } catch (error) {
       console.log(`Error ${error}`);

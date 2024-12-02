@@ -10,23 +10,23 @@ types.setTypeParser(1114, function (stringValue) {
   return stringValue;
 });
 //LOCAL
-/*
+
 const databaseConfig = {
   host: "127.0.0.1",
   port: 5432,
-  database: "bddatabase",
+  database: "bdpapelera",
   user: "postgres",
-  password: "lsmSantander76",
-};*/
+  password: "lsmSantMont76",
+};
 
 //PRODUCCION
-const databaseConfig = {
+/*const databaseConfig = {
   host: "dpg-csjvfa0gph6c73a5t15g-a",
   port: 5432,
   database: "bdpapelera",
   user: "bdpapelera_user",
   password: "FiHatUBMC2MVtQtfG7eb4VMzH2ZSSe6H",
-};
+};*/
 
 const db = pgp(databaseConfig);
 module.exports = db;

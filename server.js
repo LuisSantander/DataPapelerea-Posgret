@@ -29,7 +29,7 @@ const upload = multer({
  */
 const categories = require("./routes/datapapeleraRoutes");
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
 app.use(logger("dev"));
 app.use(express.json());
@@ -58,17 +58,18 @@ app.set("port", port);
 categories(app, upload);
 
 //PRODUCCION
-
+/*
 server.listen(port, function () {
   console.log("Aplicacion de NodeJS " + port + " Iniciada...");
 });
-
+*/
 //LOCAL
-/*
-server.listen(3000, "192.168.1.11" || "localhost", function () {
+
+server.listen(3001, "192.168.100.9" || "localhost", function () {
   console.log("Aplicacion de NodeJS " + port + " Iniciada...");
 });
-*/
+
+
 // ERROR HANDLER
 app.use((err, req, res, next) => {
   console.log(err);
